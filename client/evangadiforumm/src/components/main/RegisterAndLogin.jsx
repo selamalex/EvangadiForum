@@ -31,6 +31,7 @@ function RegisterAndLogin() {
 			.then((data) => {
 				console.log(data);
 				setRegisterResponse(data.msg);
+				navigate("/home");
 			})
 			.catch((error) => {
 				console.error("Error:", error);
@@ -60,8 +61,9 @@ function RegisterAndLogin() {
 				setLoginResponse(data.msg);
 				const token = data.token;
 				localStorage.setItem("token", token);
-				if (data.msg == "user login successfuly") {
-					navigate("/allquestion");
+				if (data.msg == "user login successful") {
+					console.log(data.msg)
+					navigate("/home");
 				}
 			})
 			.catch((error) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import About from './About';
 import "./Home.css";
 import RegisterAndLogin from './RegisterAndLogin';
-function Homes() {
+function Home() {
   return (
 		<div>
 			<div className="mainHomeWrapper">
@@ -15,4 +15,4 @@ function Homes() {
 	);
 }
 
-export default Homes;
+export default Home;

@@ -11,18 +11,20 @@ import './question.css';
 function QuestionDetail({question}) {
   const navigate = useNavigate()
   const handleclick = ()=>{
-   navigate(`/Answer/${question.questions_id}`)
+    navigate("/answer")
   }
+
   return (
     <div className='header_question'>
       <div className='question_user'>
         <CgProfile className='profile'/>
-        <div className='username'>{question?.user_name}</div>
+        <div className='username'>{question?.username}</div>
       </div>
 
       <div className='question_title' onClick={handleclick}>
       <div className='question_conten'>{question?.title}</div>
       <div className='question_arrow '>
+        <div>{question?.questionid}</div>
         < FaGreaterThan/>
         </div>
       </div>

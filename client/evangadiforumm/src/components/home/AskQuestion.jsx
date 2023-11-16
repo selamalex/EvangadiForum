@@ -1,84 +1,102 @@
 import React, { useState } from "react";
-import './AskQuestion.css';
+import { Link } from "react-router-dom";
+import "./AskQuestion.css";
 import axios from "./axiosConfig";
-// import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-import ArrowCircleRightTwoToneIcon from "@mui/icons-material/ArrowCircleRightTwoTone";
-function Ask() {
-	const [newQuestion, setQuestion] = useState("");
-	const [description, setDescription] = useState("");
+function AskQuestion() {
+	//state to store question title from the user
+	let [titleValue, setTitleValue] = useState("");
+	//state to store discription from the user
+	let [discriptionValue, setDiscriptionValue] = useState("");
+	//state to store server response
+	let [questionResponse, setQuestionResponse] = useState("");
 
-	const postQuestion = async () => {
-		try {
-			const token = localStorage.getItem("token");
-			const response = await axios.post(
-				"/questions/ask",
-				{
-					title: newQuestion,
-					description: description,
-					
-				},
-				{
-					headers: {
-						Authorization: "Bearer " + token,
+	function submit(e) {
+		e.preventDefault();
+		if(!titleValue || ! discriptionValue){
+			return setQuestionResponse("Question title or Discrtiption can not be empty")
+		}
+		const token = localStorage.getItem("token");
+		try { 
+			console.log("token ", token);
+			axios.post("/questions/ask",
+					{
+						title: titleValue,
+						description: discriptionValue,
 					},
-				}
-			);
-			alert("Question posted successfully.");
+					{
+						headers: {
+							authorization: "Bearer " + token,
+						},
+					}
+				)
+				.then((response) => {
+					setQuestionResponse(response.data.msg);
+					e.target.reset();
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		} catch (error) {
 			console.log(error);
-			alert("An error occurred while posting the question.");
 		}
-	};
-
+	}
 	return (
-		<div className="tocenter">
-			<div className="purples">
-				<h1>Steps To Write A Good Question.</h1>
-				<h3>
-					<ArrowCircleRightTwoToneIcon className="topurpel" />
-					Summarize your problems in a one-line-title.
-				</h3>
-				<h3>
-					<ArrowCircleRightTwoToneIcon className="topurpel" />
-					Describe your problem in more detail.
-				</h3>
-				<h3>
-					<ArrowCircleRightTwoToneIcon className="topurpel" />
-					Review your question and post it here.
-				</h3>
-				<h1 classname="tocenter">
-					
-					Post Your Question
-				</h1>
+		<div className="thewhole">
+			<div className="askQuestion">
+				<h1>Steps to write a good question</h1>
+
+				<ul className="">
+					<li className="no1">Summerize your problem in a one-line title.</li>
+					<li className="no2">Describe your problem in more detail.</li>
+					<li className="no3">Describe what you tried and what you expected to happen.</li>
+					<li className="no4">Review your question and post it to the site.</li>
+				</ul>
 			</div>
-			<form action="#">
-				<div>
+
+			<div className="askQuestion">
+				<br />
+				<br />
+				<br />
+				<br />
+				<h1>Ask a public question</h1>
+				<Link to="/home" className="goto">
+					<p className="gotoPage">Go to Question page</p>
+				</Link>
+
+				<br />
+				<h1 className="blue">{questionResponse}</h1>
+			</div>
+
+			<form onSubmit={submit}>
+				<div className="askQuestion">
 					<input
+						className="textArea"
+						onChange={(e) => setTitleValue(e.target.value)}
 						type="text"
-						placeholder="Question title"
-						onChange={(e) => setQuestion(e.target.value)}
-						style={{ width: "90%", height: "50px", margin: "10px" }}
+						placeholder="Title"
 					/>
+					<br />
+
+					<textarea
+						className="textArea"
+						onChange={(e) => setDiscriptionValue(e.target.value)}
+						name=""
+						id=""
+						cols=""
+						rows=""
+						placeholder="Question description..."
+					></textarea>
+					<br />
+					<button className="allQuestion-button" type="submit">
+						Post Your Question
+					</button>
 				</div>
-				<div>
-					<input
-						style={{ width: "90%", height: "100px", margin: "10px" }}
-						type="text"
-						placeholder="Question details..."
-						onChange={(e) => setDescription(e.target.value)}
-						// rows={4}
-					/>
-				</div>
-				<button
-					onClick={postQuestion}
-					className="blue"
-					style={{ margin: "10px" }}
-				>
-					Post Question
-				</button>
 			</form>
 		</div>
 	);
 }
 
-export default Ask;
+export default AskQuestion;
+
+
+

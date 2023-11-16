@@ -11,6 +11,6 @@ router.post("/ask", postQuestions);
 router.get("/all-questions", allQuestions);
 
 //single question route
-router.get("/single-question/:questions_id", singleQuestion);
+router.get("/single-question/:questionid", singleQuestion);
 
 module.exports = router;

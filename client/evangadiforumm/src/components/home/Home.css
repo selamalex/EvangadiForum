@@ -1,74 +1,144 @@
 .tops {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 50px;
 }
-.n_user{
+
+.n_user {
   /* margin-left: 100px; */
-	position: absolute;
-	right: 10%;
-	/* right: 0; */
-	/* top: 0; */
+  position: absolute;
+  right: 10%;
+  /* right: 0; */
+  /* top: 0; */
 }
+
 .blue_button {
   background-color: #516cf0;
+  border: solid #516cf0;
   color: #fff;
-  border-radius: 50px;
+  border-radius: 15px;
   padding: 0px 30px;
   height: 50px;
-  /* width: 20%; */
+  margin-left: 50px;
+  margin-right: 30px;
+  width: 300px;
 }
-.blue_button:hover{
+
+.blue_button:hover {
   color: black;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 
 }
+
 .header_border {
   color: black;
   font-weight: 500;
   font-size: large;
   margin-left: 50px;
 }
-.user{
+
+.user {
   color: red;
   font-size: x-large;
   font-weight: 600;
   font-style: italic;
 }
-.n_user{
-  margin-left: 30px;
+
+.header_border {
+  margin-left: 10px;
+  margin-top: 60px;
+  font-size: 30px;
+  font-weight: bold;
 }
+
 .search {
   display: flex;
   justify-content: space-between;
 }
-.search_bar {
-height: 50px;
-display: flex;
-cursor: pointer;
-padding: 10px 20px;
-background: #fff;
-border-radius: 30px;
-align-items: center;
-margin-top: 50px;
-margin-bottom: 20px;
-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 
+.search_bar {
+  padding-left: 40px;
+  padding-right: 70px;
+  height: 50px;
+  margin-top: 50px;
+  border: solid black 1px;
+  border-radius: 15px;
+  margin-left: 150px;
 }
-.search_bar:hover input{
-  width: 100%;
+
+.search_bar:hover {
+  border: solid rgb(6, 46, 139) 1px;
 }
-.search_bar input{
-  width: 0;
+
+.search_bar input {
+  padding: 16px;
   outline: none;
   border: none;
   font-weight: 500;
   transition: 0.8s;
   background: transparent;
+  font-size: large;
 
 }
-.search_icon{
-  color: #1dfa;
-  font-size: 18px;
+
+
+
+.questions {
+  display: flex;
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+  color: #424244;
+
+}
+
+.marginedpart {
+  margin-left: 70px;
+}
+
+hr {
+  width: 1100px;
+  margin-bottom: 20px;
+}
+
+.titlename {
+  margin-top: 60px;
+  margin-left: -950px;
+  font-size: larger;
+}
+
+.questionshead {
+  margin-bottom: 20px;
+}
+
+.imagepart {
+  margin-bottom: 20px;
+}
+
+.usernamef {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: larger;
+}
+
+.arrowright {
+  margin-top: 60px;
+  margin-left: -20px;
+}
+
+.search_bar {
+  width: 150px;
+  height: 50px;
+}
+
+.upperpart {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.thewholepart {
+  display: inline;
 }

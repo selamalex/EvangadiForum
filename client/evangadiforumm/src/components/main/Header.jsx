@@ -8,7 +8,7 @@ function Header() {
 		<div>
 			<div className="mainHeaderWrapper">
 				<div>
-					<Link to="/">
+					<Link to="/home">
 						<img className="evangadiImage" src={img} alt="evangadi logo" />
 					</Link>
 				</div>
