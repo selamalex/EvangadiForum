@@ -13,7 +13,7 @@ function RegisterAndLogin() {
 	let [password, setPassword] = useState("");
 	function agreeAndJoinHandler(e) {
 		e.preventDefault();
-		let data = {
+		let dataRegister = {
 			email: email,
 			firstname: firstName,
 			lastname: lastName,
@@ -25,7 +25,7 @@ function RegisterAndLogin() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(data),
+			body: JSON.stringify(dataRegister),
 		})
 			.then((response) => response.json())
 			.then((data) => {
