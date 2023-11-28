@@ -9,7 +9,6 @@ const dbConnection=require("../server/db/dbConfige");
 app.use(cors());
 //user routes middleware file
 const userRoutes=require("../server/routess/userRoute");
-
 //json middleware to extract json data
 app.use(express.json())
 
